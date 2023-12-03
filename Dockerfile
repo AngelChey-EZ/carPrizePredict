@@ -9,5 +9,7 @@ RUN pip install -r requirements.txt
 # Add every files and folder into the app folder
 COPY . .
 
+EXPOSE 8000
+
 # Run gunicorn web server and binds it to the port
-CMD ["python", "app.py", "--port=8000"]
+CMD python3 -m flask run --host=0.0.0.0
