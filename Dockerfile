@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Run gunicorn web server and binds it to the port
-CMD ["python", "app.py"]
+CMD ["python", "app.py", "--port=8000"]
