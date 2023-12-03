@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% for record in records %}
+<div class="card">
+    <div class="card-header row">
+        <div class="col-md-6 ml-3">Predicted On: {{record.predict_on.strftime('%d %B %Y %H:%M:%S') }}</div>
+        <div class="col-md-4">Predicted Resale Price: ${{record.pred_price}}</div>
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <div class="row">
+                <div class="col-md-6 ml-3">
+                    <div class="row"><div class="col-md-5 mb-2">Year Purchase</div><div class="col-md-6">: {{record.year_purchase}}</div></div>
+                    <div class="row"><div class="col-md-5 mb-2">Engine Displacement</div><div class="col-md-6">: {{record.engine_displacement}} CC</div></div>
+                    <div class="row"><div class="col-md-5 mb-2">Max Power</div><div class="col-md-6">: {{record.max_power}} hp</div></div>
+                    <div class="row"><div class="col-md-5 mb-2">Torque</div><div class="col-md-6">: {{record.torque}} Nm</div></div>
+                </div>
+                <div class="col-md-4 ml-3">
+                    <div class="row"><div class="col-md-5 mb-2">Brand </div><div class="col-md-6">: {{record.brand}}</div></div> 
+                    <div class="row"><div class="col-md-5 mb-2">Fuel</div><div class="col-md-6">: {{record.fuel}}</div></div> 
+                    <div class="row"><div class="col-md-5 mb-2">Owner</div><div class="col-md-6">: {{record.owner}}</div></div>
+                </div>
+
+            </div>
+        </blockquote>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

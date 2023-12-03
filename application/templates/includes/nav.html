@@ -1,0 +1,35 @@
+<header>
+    <nav>
+    <ul class="nav"> 
+
+    <li class="nav-item"> 
+    <a href="/" class="nav-link 
+    {% if index %}active{% endif %}">Home</a>
+    </li>
+
+    <li class="nav-item"> 
+        <a href="/MypredictionHistory" class="nav-link 
+        {% if index %}active{% endif %}">My Prediction History</a>
+    </li>
+
+    <li class="nav-item"> 
+        <a href="/mostRecentPredictionHistory" class="nav-link 
+        {% if index %}active{% endif %}">Most Recent Prediction History</a>
+    </li>
+
+    {% if session['Logined']==True %}
+    <li class="nav-item"> 
+        <a href="/logout" class="nav-link">Log Out</a>
+    </li>
+
+    {% else %}
+    <li class="nav-item"> 
+        <a href="/login" class="nav-link">Login/Sign Up</a>
+    </li>
+        
+    {% endif %}
+
+
+    </ul>
+    </nav>
+</header>

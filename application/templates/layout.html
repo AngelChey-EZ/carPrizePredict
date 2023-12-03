@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ titel }}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}" />
+    </head>
+
+    <body>
+        <div class="container-fluid text-center top-container ">
+            <img class="img-fluid w-100 h-auto" src="{{ url_for('static', filename = 'images/header.png') }}" />
+        </div>
+
+        <div class="container">
+            {% include 'includes/nav.html' %}
+            {% with messages = get_flashed_messages(with_categories = true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            <p class="d-flex justify-content-center">{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% block content %}
+            
+            {% endblock %}
+            {% include 'includes/footer.html' %}
+        </div>
+        
+    </body>
+</html>

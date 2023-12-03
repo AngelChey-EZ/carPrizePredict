@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="row"> 
+        <div class="col-md-6 offset-md-3">
+            <form class="mt-2" name="loginform" action="/loginProcess" method="post"  novalidate>
+                <fieldset class="form-group p-3 w-100">
+                    <legend class="pl-3 pt-3 h2">Log in</legend>
+                    {{ form.hidden_tag() }}
+                    <hr class="mt-0">
+                    <div class="mx-auto mb-3">
+                        {{form.userName.label}}<br/>
+                        {{form.userName(class='form-control')}}
+                        {% for error in form.userName.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="mx-auto mb-3">
+                        {{form.password.label}}<br/>
+                        {{form.password(class='form-control', type='password')}}
+                        {% for error in form.password.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="mx-auto">{{ form.submit(class_ = 'btn btn-primary') }}</div>
+                    <hr class="mb-0">
+                    <div class="p-3">Don't have an account yet?<br/>
+                        <a href="/signUp" class="nav-link">Click here to sign up</a>
+                    </div>
+                </fieldset>
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

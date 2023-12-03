@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+<!-- The block content replace the one encapsulated in layout.html --> 
+{% block content %}
+<div>
+    <div>
+        <form action="/predict" name="predictForm" method="post" novalidate>
+            <fieldset class="form-group mx-3">
+                <legend class="d-flex justify-content-center pt-3 h2">Predict Resale Car Price</legend>
+                <hr class="mb-5">
+                {{ form.hidden_tag() }}
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <!--year purchase-->
+                        <div class='row mb-3'>
+                            {{form.year_purchase.label(class_='col-md-4')}}:
+                            {{form.year_purchase(class_='form-control col-md-4 ml-3')}}
+                            {% for error in form.year_purchase.errors %}
+                            <span class="error-message col-md-4 col-offset-8 mx-auto pl-4"> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        
+
+                        <!--engine replacement-->
+                        <div class='row mb-3'>
+                            {{form.engine_displacement.label(class_='col-md-4')}}:
+                            {{form.engine_displacement(class_='form-control col-md-4 mx-3')}}
+                            {{form.engine_unit(class_='form-control col-md-2')}}
+                            {% for error in form.engine_displacement.errors %}
+                            <span class="error-message col-md-4 col-offset-8 mx-auto pl-4"> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+
+                        <!--max power-->
+                        <div class='row mb-3'>
+                            {{form.max_power.label(class_='col-md-4')}}:
+                            {{form.max_power(class_='form-control col-md-4 mx-3')}}
+                            {{form.max_power_unit(class_='form-control col-md-2')}}
+                            {% for error in form.max_power.errors %}
+                            <span class="error-message col-md-4 col-offset-8 mx-auto pl-4"> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+
+                        <!--torque-->
+                        <div class='row mb-3'>
+                                {{form.torque.label(class_='col-md-4')}}:
+                                {{form.torque(class_='form-control col-md-4 mx-3')}}
+                                {{form.torque_unit(class_='form-control col-md-2')}}
+                                {% for error in form.torque.errors %}
+                            <span class="error-message col-md-4 col-offset-8 mx-auto pl-4"> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <!--brand-->
+                        <div class='row mb-3'>
+                            {{form.brand.label(class_='col-md-4')}}:
+                            {{form.brand(class_='form-control col-md-6 ml-3')}}
+                            {% for error in form.brand.errors %}
+                            <span class="error-message col-md-4 mx-auto pl-4"> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        
+
+                        <!--fuel-->
+                        <div class='row mb-3'>
+                            {{form.fuel.label(class_='col-md-4')}}:
+                            {{form.fuel(class_='form-control col-md-6 ml-3')}}
+                            {% for error in form.fuel.errors %}
+                            <span class="error-message col-md-4 mx-auto pl-4"> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+
+                        <!--owner-->
+                        <div class='row mb-3'>
+                            {{form.owner.label(class_='col-md-4')}}:
+                            {{form.owner(class_='form-control col-md-6 ml-3')}}
+                            {% for error in form.owner.errors %}
+                            <span class="error-message col-md-4 mx-auto pl-4">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-6 text-center ">{{ form.submit(class_ = 'form-control btn btn-primary w-25') }}</div>
+                    <div class="col-6 text-center"><button class="form-control btn btn-danger w-25 mx-auto" type="reset">Reset</button></div>
+                </div>
+
+                
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}
