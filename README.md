@@ -43,3 +43,6 @@ The application is developed by a car resale company in USA, aiming to analyze u
 5. get all users' (by user id, user need to login to access this function) prediction records
 6. get latest top 5 prediction from database
 7. filter/search frunction on getting latest top 5 prediction from database
+
+### Deployment
+url: https://carpricepredict-aohu.onrender.com/
